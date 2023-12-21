@@ -19,6 +19,10 @@ public class Korisnik {
         this.lozinka = new SimpleStringProperty();
     }
 
+    public Korisnik(String ime, String prezime, String email) {
+
+    }
+
     public String getIme() {
         return ime.get();
     }

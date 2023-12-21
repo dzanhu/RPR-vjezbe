@@ -24,7 +24,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding></Label>
       <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="114.0" GridPane.columnIndex="2" />
-      <ListView fx:id="userListView" prefHeight="288.0" prefWidth="230.0" GridPane.rowSpan="5" />
+      <ListView fx:id="userListView"  prefHeight="288.0" prefWidth="230.0" GridPane.rowSpan="5" />
       <TextField fx:id="lastNameTextField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <TextField fx:id="emailTextField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <TextField fx:id="usernameTextField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
@@ -52,7 +52,7 @@
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
         <buttons>
           <Button fx:id="dodaj_button" mnemonicParsing="false" onAction="#Dodaj" text="Dodaj" />
-            <Button fx:id="izadjiButton" text="Kraj" onAction="#Kraj" />
+            <Button fx:id="izadjiButton" onAction="#Kraj" text="Kraj" />
         </buttons>
       </ButtonBar>
    </children>

@@ -1,5 +1,7 @@
 package com.example.lv_78;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,26 +32,46 @@ public class HelloController {
     @FXML
     private Button dodaj_button;
 
+    private int selectedIndex = -1;
+    private ObservableList<String> userList = FXCollections.observableArrayList();
+
+
+    @FXML
+    public void initialize() {
+        userListView.setItems(userList);
+
+        userListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                String[] parts = newValue.split(" ");
+                nameTextField.setText(parts[0]);
+                lastNameTextField.setText(parts[1]);
+            }
+        });
+    }
+
+    @FXML
     public void Dodaj(ActionEvent actionEvent) {
         String userName = nameTextField.getText();
         String userLastName = lastNameTextField.getText();
         String userEmail = emailTextField.getText();
         String userUsername = usernameTextField.getText();
         String userPassword = passwordField.getText();
+
         if (!userName.isEmpty() && !userLastName.isEmpty() && !userEmail.isEmpty() && !userUsername.isEmpty() && !userPassword.isEmpty()) {
-            String user = userName + " " + userLastName;
-            userListView.getItems().add(user);
+            String newUser = userName + " " + userLastName;
+
+            userList.add(newUser);
+
             nameTextField.clear();
             lastNameTextField.clear();
             emailTextField.clear();
             usernameTextField.clear();
             passwordField.clear();
-
         }
     }
-    public void Kraj(ActionEvent actionEvent){
+
+    public void Kraj(ActionEvent actionEvent) {
         Platform.exit();
         System.exit(0);
     }
-
 }
